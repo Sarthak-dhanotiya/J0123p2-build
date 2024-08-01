@@ -278,3 +278,22 @@ const saveEdit = (e) => {
   submitButton.innerHTML = "Open Task";
 };
 
+
+// search task
+
+const searchTask=(e) =>{
+
+  while(firstclass.firstChild){
+    firstclass.removeChild(firstclass.firstChild);
+
+  }
+
+  const resultData=state.taskList.filter(({title})=>
+  title.toLowerCase().includes(e.target.value.toLowerCase())
+  );
+
+  resultData.map((cardDate)=>
+  firstclass.insertAdjacentHTML("beforeend",HtmlTaskContent(cardDate)));
+
+
+};
